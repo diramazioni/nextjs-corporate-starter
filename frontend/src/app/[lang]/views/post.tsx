@@ -51,7 +51,7 @@ export default function Post({ data }: { data: Article }) {
                     className="w-full h-96 object-cover rounded-lg"
                 />
             )}
-            <div className="space-y-6">
+            <div className="space-y-16 p-11">
                 <h1 className="leading-tight text-5xl font-bold ">{title}</h1>
                 <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-400">
                     <div className="flex items-center md:space-x-2">
@@ -71,8 +71,8 @@ export default function Post({ data }: { data: Article }) {
                 </div>
             </div>
 
-            <div className="dark:text-gray-100">
-                <p>{description}</p>
+            <div className="dark:text-gray-100 p-4">
+                {/* <p>{description}</p> */}
 
                 {data.attributes.blocks.map((section: any, index: number) => postRenderer(section, index))}
             </div>
