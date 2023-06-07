@@ -41,7 +41,7 @@ export default function Post({ data }: { data: Article }) {
     const authorImgUrl = getStrapiMedia(authorsBio.data?.attributes.avatar.data.attributes.url);
 
     return (
-        <article className="space-y-8 dark:bg-black dark:text-gray-50">
+        <article className="space-y-8 bg-col dark:text-gray-50">
             {imageUrl && (
                 <Image
                     src={imageUrl}
@@ -64,7 +64,7 @@ export default function Post({ data }: { data: Article }) {
                                 className="w-14 h-14 border rounded-full dark:bg-gray-500 dark:border-gray-700"
                             />
                         )}
-                        <p className="text-md dark:text-violet-400">
+                        <p className="text-md dark:text-teal-400">
                             {author && author.name} • {formatDate(publishedAt)}
                         </p>
                     </div>
