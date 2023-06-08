@@ -14,6 +14,9 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "fullView": {
+      "type": "boolean"
     }
   }
 }
