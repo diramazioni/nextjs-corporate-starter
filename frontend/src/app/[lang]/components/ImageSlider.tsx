@@ -16,6 +16,7 @@ interface SlidShowProps {
   files: {
     data: Image[];
   };
+  fullView: boolean;
 }
 
 export default function Slideshow({ data }: { data: SlidShowProps }) {
@@ -26,7 +27,8 @@ export default function Slideshow({ data }: { data: SlidShowProps }) {
           const imageUrl = getStrapiMedia(fadeImage.attributes.url);
           return (
             <div key={index}>
-              {imageUrl && <Image className="w-full h-96 object-cover rounded-lg" height={400} width={600} alt="alt text" src={imageUrl} />}
+              {(imageUrl && !data.fullView) && <Image className="w-full h-96 object-cover rounded-lg" height={400} width={600} alt="alt text" src={imageUrl} />}
+              {(imageUrl && data.fullView) && <Image className="w-full h-full object-cover rounded-lg" height={400} width={600} alt="alt text" src={imageUrl} />}
             </div>
           );
         })}
