@@ -61,7 +61,7 @@ function Testimonial({ text, authorName, picture }: Testimonial) {
           <path d="M232,16H193.6L16,185.143V416H232ZM200,384H48V198.857L200,54.1Z"></path>
         </svg>
       </div>
-      <span className="w-12 h-1 my-2 rounded-lg dark:bg-violet-400"></span>
+      <span className="w-12 h-1 my-2 rounded-lg dark:bg-teal-400"></span>
       <p>{authorName}</p>
     </div>
   );
@@ -69,7 +69,7 @@ function Testimonial({ text, authorName, picture }: Testimonial) {
 
 export default function Testimonials({ data }: TestimonialsProps) {
   return (
-    <section className="dark:bg-black dark:text-gray-100  m:py-12 lg:py-24">
+    <section className="bg-col dark:text-gray-100  m:py-12 lg:py-24">
       <div className="container mx-auto py-4 space-y-2 text-center">
         <h1 className="text-4xl font-semibold leading-none text-center">
           {data.title}
