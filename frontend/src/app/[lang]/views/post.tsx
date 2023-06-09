@@ -52,7 +52,8 @@ export default function Post({ data }: { data: Article }) {
                 />
             )}
             <div className="space-y-16 p-11">
-                <h1 className="leading-tight text-5xl font-bold ">{title}</h1>
+                <h1 className="leading-tight text-4xl font-bold text-teal-200">{title}</h1>
+                <h2 className='text-3xl text-teal-300'>{description}</h2>
                 <div className="flex flex-col items-start justify-between w-full md:flex-row md:items-center dark:text-gray-400">
                     <div className="flex items-center md:space-x-2">
                         {authorImgUrl && (
@@ -71,9 +72,7 @@ export default function Post({ data }: { data: Article }) {
                 </div>
             </div>
 
-            <div className="dark:text-gray-100 p-4">
-                {/* <p>{description}</p> */}
-
+            <div className="dark:text-gray-100 m-2 sm:p-2 md:p-4 lg:p-6">
                 {data.attributes.blocks.map((section: any, index: number) => postRenderer(section, index))}
             </div>
         </article>
