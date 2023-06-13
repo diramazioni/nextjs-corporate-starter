@@ -33,7 +33,7 @@ export function sectionRenderer(section: any, index: number) {
       return <Quote key={index} data={section} />;
     case "sections.media":
       return <Media key={index} data={section} />;
-    case "sections.video-embed":
+    case "sections.video-embeded":
       return <VideoEmbed key={index} data={section} />;      
     default:
       return null;

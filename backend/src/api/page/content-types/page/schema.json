@@ -50,7 +50,10 @@
         "sections.lead-form",
         "sections.features",
         "sections.heading",
-        "sections.slider"
+        "sections.slider",
+        "sections.quote",
+        "sections.media",
+        "sections.video-embeded"
       ],
       "pluginOptions": {
         "i18n": {

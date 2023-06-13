@@ -37,6 +37,9 @@ const populate = {
       files: {
         populate: true,
       },
+      file: {
+        populate: true,
+      },
     },
   },
 };

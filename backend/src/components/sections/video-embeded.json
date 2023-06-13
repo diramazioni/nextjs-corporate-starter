@@ -1,0 +1,12 @@
+{
+  "collectionName": "components_sections_video_embededs",
+  "info": {
+    "displayName": "Video Embeded"
+  },
+  "options": {},
+  "attributes": {
+    "url": {
+      "type": "string"
+    }
+  }
+}
