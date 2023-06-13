@@ -34,6 +34,9 @@ const populate = {
       submitButton: {
         populate: true,
       },
+      files: {
+        populate: true,
+      },
     },
   },
 };
