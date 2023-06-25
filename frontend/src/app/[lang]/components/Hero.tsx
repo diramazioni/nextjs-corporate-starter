@@ -3,6 +3,7 @@ import Image from "next/image";
 import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
+import heroIcon from "../../../../public/next.svg"
 
 interface Button {
   id: string;
@@ -67,8 +68,10 @@ export default function Hero({ data }: HeroProps) {
           </div>
         </div>
         <div className="flex items-center justify-center p-6 mt-8 lg:mt-0 h-72 sm:h-80 lg:h-96 xl:h-112 2xl:h-128">
+        
+        {/* src={imgUrl || ""} */}
           <Image
-            src={imgUrl || ""}
+            src={heroIcon}
             alt={
               data.picture.data.attributes.alternativeText || "none provided"
             }
