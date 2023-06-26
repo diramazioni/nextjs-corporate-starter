@@ -1,4 +1,4 @@
-name: remote ssh command
+name: rebuild node
 on: 
   push:
     branches:
@@ -9,10 +9,23 @@ jobs:
   build:
     name: Build
     runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [18.16]
+
+
     steps:
       - uses: actions/checkout@v3
-      - name: rebuild the website
-      - run: cd frontend && npm ci && NODE_ENV=production yarn build
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+
+      - name: rebuild the frontend
+      - run: cd frontend && npm ci 
+      - run: NODE_ENV=production yarn build
 
     # - name: executing remote ssh commands using password
     #   uses: appleboy/ssh-action@v0.1.10
