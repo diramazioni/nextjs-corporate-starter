@@ -22,5 +22,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: cd frontend && npm ci 
-#      - run: NODE_ENV=production yarn build
+      - run: cd frontend && npm i 
+      - run: NODE_ENV=production yarn build
