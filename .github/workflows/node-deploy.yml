@@ -22,10 +22,11 @@ jobs:
       #   path: '_cache'
       #   key: 'npm'      
       - uses: actions/checkout@v3
-      # - name: Use Node.js ${{ matrix.node-version }}
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: ${{ matrix.node-version }}
-      #     cache: 'npm'
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'npm'
+      - run: npm install -g yarn
       - run: cd frontend && npm i 
       - run: NODE_ENV=production yarn build
