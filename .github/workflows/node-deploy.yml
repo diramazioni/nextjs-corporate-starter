@@ -10,23 +10,42 @@ jobs:
     name: Build
     runs-on: self-hosted
 
-    strategy:
-      matrix:
-        node-version: [18.16]
+    steps:     
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.16'
 
+      - name: Cache npm packages
+        uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
 
-    steps:
+      - name: Install
+        run: npm install -g yarn              
+      - run: yarn setup
+      # - uses: actions/checkout@v3
+      # - name: Use Node.js ${{ matrix.node-version }}
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: ${{ matrix.node-version }}
+      #     cache: 'npm'
+      # - run: npm install -g yarn
+      # - run: yarn setup
+      # - run: cp /home/web/sites/diramazioni/backend/.env backend/
+      # - run: cp /home/web/sites/diramazioni/frontend/.env frontend/
+      # - run: cp /home/web/sites/diramazioni/backend/ecosystem.config.js backend/
+      # - run: cp /home/web/sites/diramazioni/frontend/ecosystem.config.js frontend/
+      # - run: cd frontend && NODE_ENV=production yarn build
+      # - run: cd frontend && NODE_ENV=production yarn build
       # - uses: actions/cache@v1.2.1
       # name: 'Cache'
       # with:
       #   path: '_cache'
-      #   key: 'npm'      
-      - uses: actions/checkout@v3
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v3
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm install -g yarn
-      - run: cd frontend && npm i 
-      - run: cd frontend && NODE_ENV=production yarn build
+      #   key: 'npm' 
