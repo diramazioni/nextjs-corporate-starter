@@ -23,13 +23,16 @@ jobs:
         uses: actions/cache@v2
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          key: ${{ runner.os }}-repo-${{ hashFiles('**') }}
           restore-keys: |
-            ${{ runner.os }}-node-
+            ${{ runner.os }}-repo-
 
       - name: Install
         run: npm install -g yarn pm2              
-      - run: yarn setup
+      - name: Install backend        
+        run: cd backend && npm ci
+      - name: Install frontend        
+        run: cd frontend && npm ci
       # - uses: actions/checkout@v3
       # - name: Use Node.js ${{ matrix.node-version }}
       #   uses: actions/setup-node@v3
@@ -46,14 +49,3 @@ jobs:
       - run: cd backend && pm2 restart ecosystem.config.js
       - run: cd frontend && NODE_ENV=production yarn build
       - run: cd frontend && pm2 restart ecosystem.config.js
-
-#   deploy:
-#     name: Deploy
-#     runs-on: self-hosted
-#    
-      # - run: cd frontend && NODE_ENV=production yarn build
-      # - uses: actions/cache@v1.2.1
-      # name: 'Cache'
-      # with:
-      #   path: '_cache'
-      #   key: 'npm' 
