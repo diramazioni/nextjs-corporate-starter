@@ -29,4 +29,4 @@ jobs:
           cache: 'npm'
       - run: npm install -g yarn
       - run: cd frontend && npm i 
-      - run: NODE_ENV=production yarn build
+      - run: cd frontend && NODE_ENV=production yarn build
