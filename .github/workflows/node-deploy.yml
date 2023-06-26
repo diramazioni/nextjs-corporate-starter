@@ -22,16 +22,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-
-      - name: rebuild the frontend
       - run: cd frontend && npm ci 
-      - run: NODE_ENV=production yarn build
-
-    # - name: executing remote ssh commands using password
-    #   uses: appleboy/ssh-action@v0.1.10
-    #   with:
-    #     host: ${{ secrets.HOST }}
-    #     username: ${{ secrets.USERNAME }}
-    #     password: ${{ secrets.PASSWORD }}
-    #     port: ${{ secrets.PORT }}
-    #     script: whoami
+#      - run: NODE_ENV=production yarn build
