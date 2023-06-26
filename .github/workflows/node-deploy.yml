@@ -1,0 +1,24 @@
+name: remote ssh command
+on: 
+  push:
+    branches:
+      - deploy
+
+jobs:
+
+  build:
+    name: Build
+    runs-on: self-hosted
+    steps:
+      - uses: actions/checkout@v3
+      - name: rebuild the website
+      - run: cd frontend && npm ci && NODE_ENV=production yarn build
+
+    # - name: executing remote ssh commands using password
+    #   uses: appleboy/ssh-action@v0.1.10
+    #   with:
+    #     host: ${{ secrets.HOST }}
+    #     username: ${{ secrets.USERNAME }}
+    #     password: ${{ secrets.PASSWORD }}
+    #     port: ${{ secrets.PORT }}
+    #     script: whoami
