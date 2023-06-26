@@ -3,7 +3,7 @@ import Image from "next/image";
 import HighlightedText from "./HighlightedText";
 import { getStrapiMedia } from "../utils/api-helpers";
 import { renderButtonStyle } from "../utils/render-button-style";
-import heroIcon from "../../../../public/next.svg"
+import heroIcon from "../../../../public/hero.svg"
 
 interface Button {
   id: string;
