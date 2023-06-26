@@ -28,7 +28,7 @@ jobs:
             ${{ runner.os }}-node-
 
       - name: Install
-        run: npm install -g yarn              
+        run: npm install -g yarn pm2              
       - run: yarn setup
       # - uses: actions/checkout@v3
       # - name: Use Node.js ${{ matrix.node-version }}
@@ -38,11 +38,19 @@ jobs:
       #     cache: 'npm'
       # - run: npm install -g yarn
       # - run: yarn setup
-      # - run: cp /home/web/sites/diramazioni/backend/.env backend/
-      # - run: cp /home/web/sites/diramazioni/frontend/.env frontend/
-      # - run: cp /home/web/sites/diramazioni/backend/ecosystem.config.js backend/
-      # - run: cp /home/web/sites/diramazioni/frontend/ecosystem.config.js frontend/
-      # - run: cd frontend && NODE_ENV=production yarn build
+      - run: cp /home/web/sites/diramazioni/backend/.env backend/
+      - run: cp /home/web/sites/diramazioni/frontend/.env frontend/
+      - run: cp /home/web/sites/diramazioni/backend/ecosystem.config.js backend/
+      - run: cp /home/web/sites/diramazioni/frontend/ecosystem.config.js frontend/
+      - run: cd backend && NODE_ENV=production yarn build
+      - run: cd backend && pm2 restart ecosystem.config.js
+      - run: cd frontend && NODE_ENV=production yarn build
+      - run: cd frontend && pm2 restart ecosystem.config.js
+
+#   deploy:
+#     name: Deploy
+#     runs-on: self-hosted
+#    
       # - run: cd frontend && NODE_ENV=production yarn build
       # - uses: actions/cache@v1.2.1
       # name: 'Cache'
