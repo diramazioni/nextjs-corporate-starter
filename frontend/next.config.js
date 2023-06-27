@@ -9,15 +9,14 @@ const nextConfig  =  {
       {
         protocol: 'https',
         hostname: 'api.diramazioni.net',
-        port: '',
         pathname: '/uploads/**',
       },
-/*       {
+      {
         protocol: 'http',
         hostname: 'localhost',
         port: '1337',
         pathname: '/uploads/**',
-      } */
+      } 
     ],
 /*     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
