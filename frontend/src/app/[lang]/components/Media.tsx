@@ -23,7 +23,7 @@ export default function Media({ data }: { data: MediaProps }) {
         <Image
           src={imgUrl || ""}
           alt={data.file.data.attributes.alternativeText || "none provided"}
-          className="object-cover w-full h-full rounded-lg overflow-hidden"
+          className="object-cover rounded-lg"
           width={400}
           height={400}
         />
@@ -34,9 +34,9 @@ export default function Media({ data }: { data: MediaProps }) {
       <Image
       src={imgUrl || ""}
       alt={data.file.data.attributes.alternativeText || "none provided"}
-      className="object-cover w-full h-full rounded-lg overflow-hidden"
+      className="object-cover rounded-lg overflow-hidden"
       width={400}
-      height={400}
+      height={400}     
     />
     ) 
   }
