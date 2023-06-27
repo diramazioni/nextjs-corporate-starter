@@ -7,14 +7,15 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
+        protocol: 'https',
+        hostname: 'api.diramazioni.net',
+        pathname: '/uploads/**',
+      },
+      {
         protocol: 'http',
         hostname: 'localhost',
         port: '1337',
         pathname: '/uploads/**',
-      },
-      {
-        protocol: 'https',
-        hostname: 'images.pexels.com',
       }
     ],
   },
