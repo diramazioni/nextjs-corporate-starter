@@ -5,11 +5,11 @@ const nextConfig  =  {
     appDir: true,
   },
   images: {
-    domains: ['https://api.diramazioni.net'],
     remotePatterns: [
       {
         protocol: 'https',
         hostname: 'api.diramazioni.net',
+        port: '',
         pathname: '/uploads/**',
       },
       {
@@ -19,6 +19,9 @@ const nextConfig  =  {
         pathname: '/uploads/**',
       }
     ],
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
 }
 
