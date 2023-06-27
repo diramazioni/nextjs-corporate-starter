@@ -36,7 +36,8 @@ export default function Media({ data }: { data: MediaProps }) {
       alt={data.file.data.attributes.alternativeText || "none provided"}
       className="object-cover rounded-lg overflow-hidden"
       width={400}
-      height={400}     
+      height={400}    
+      fill={true}
     />
     ) 
   }
