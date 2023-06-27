@@ -1,10 +1,11 @@
 /** @type {import('next').NextConfig} */
 
-module.exports =  {
+const nextConfig  =  {
   experimental: {
     appDir: true,
   },
   images: {
+    domains: ['https://api.diramazioni.net'],
     remotePatterns: [
       {
         protocol: 'https',
@@ -21,4 +22,4 @@ module.exports =  {
   },
 }
 
-//module.exports = nextConfig
+module.exports = nextConfig;
